@@ -1,8 +1,9 @@
 language: csharp
-solution: "./JwtWebApiAuthorization.sln"
-install:
-- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./JwtWebApiAuthorization.sln
 script:
-- xbuild ./JwtWebApiAuthorization.sln
-
--mono ./packages/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll
+  - xbuild /p:Configuration=Debug JwtWebApiAuthorization.sln
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore JwtWebApiAuthorization.sln
+after_script:
+  - nunit-console JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll

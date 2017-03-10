@@ -53,10 +53,10 @@
 
         private bool CheckPermissionAgainstRoles(Roles roleForToken, params Roles[] rolesForTesting) {
 
-            var anonymousAuthorization = new JwtApiAuthorization(rolesForTesting);
+            var authorizationAttribute = new JwtApiAuthorization(rolesForTesting);
             var authorizationToken = new AccessToken { Role = roleForToken }.ToTokenString();
 
-            return anonymousAuthorization.CheckAccessTokenAgainstRoles(authorizationToken);
+            return authorizationAttribute.CheckAccessTokenAgainstRoles(authorizationToken);
         }
     }
 }

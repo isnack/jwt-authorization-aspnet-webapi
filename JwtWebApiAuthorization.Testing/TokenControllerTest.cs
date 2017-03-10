@@ -24,7 +24,7 @@
         [TestCase(Roles.Administrator, TestName = "Get Authorization Token with Administrator")]
         public void GetTokenWithRole(Roles role) {
 
-            var response = TokenController.Post(role);
+            var response = TokenController.Get(role);
             Assert.Multiple(() => {
                 Assert.IsTrue(response.Success);
                 Assert.IsNotNull(response.Data);

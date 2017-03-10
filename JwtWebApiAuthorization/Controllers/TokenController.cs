@@ -9,7 +9,7 @@
     public class TokenController : ApiController {
         
         [HttpGet, Route("{role:int}")]
-        public CustomResponse Post(Roles role) {
+        public CustomResponse Get(Roles role) {
 
             var authorizationTokenWithRole = new AccessToken { Role = role }.ToTokenString();
             return new CustomResponse(authorizationTokenWithRole);

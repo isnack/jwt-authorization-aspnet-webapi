@@ -5,4 +5,4 @@ before_install:
 before_script:
   - nuget restore JwtWebApiAuthorization.sln
 after_script:
-- nunit-console JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll
+- nunit-console ./JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll

@@ -1,8 +1,8 @@
 language: csharp
 solution: JwtWebApiAuthorization.sln
-before_install:
-  - sudo apt-get install nunit-console
-before_script:
+install:
   - nuget restore JwtWebApiAuthorization.sln
-after_script:
-- nunit-console ./JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release JwtWebApiAuthorization.sln
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll

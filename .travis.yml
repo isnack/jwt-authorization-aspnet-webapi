@@ -1,7 +1,10 @@
 language: csharp
-before_install:
+solution: ./JwtWebApiAuthorization.sln
+ 
+install:
   - sudo apt-get install nunit-console
-before_script:
-  - nuget restore JwtWebApiAuthorization.sln
-after_script:
-  - nunit-console JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll
+  - nuget restore ./JwtWebApiAuthorization.sln
+ 
+script:
+  - xbuild ./JwtWebApiAuthorization.sln.sln
+  - nunit-console ./JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll

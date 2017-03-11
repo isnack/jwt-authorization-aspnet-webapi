@@ -3,6 +3,6 @@ solution: JwtWebApiAuthorization.sln
 before_install:
   - sudo apt-get install nunit-console
 before_script:
-  - nuget restore MTAServiceStatus.sln
+  - nuget restore JwtWebApiAuthorization.sln
 after_script:
 - nunit-console JwtWebApiAuthorization.Testing/bin/Debug/JwtWebApiAuthorization.Testing.dll
